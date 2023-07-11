@@ -1,11 +1,12 @@
 package magnus.Calculator_Problem5;
 
+import magnus.Main;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.Scanner;
 
-public class Calculator {
+public class Calculator5 {
 
     private boolean isTest;
     Scanner scanner;
@@ -13,12 +14,18 @@ public class Calculator {
     List<Double> parametersSecondCalculation;
     List<Character> operatorsSecondCalculation;
 
-    public Calculator(boolean isTest) {
+    public Calculator5(boolean isTest) {
         this.isTest = isTest;
         parametersSecondCalculation = new ArrayList<>();
         operatorsSecondCalculation = new ArrayList<>();
         if (!isTest) {
-             readInput(null);
+             runApp();
+        }
+    }
+
+    public void runApp(){
+        while(true){
+            readInput(null);
         }
     }
 
@@ -30,8 +37,11 @@ public class Calculator {
         scanner = isTest ? new Scanner(testStr) : new Scanner(System.in);
 
         while (true) {
-            System.out.println("***With multiple operators of different precendence***\nCalculate:");
+            System.out.println("***With multiple operators of different precendence (exit = exit)***\nCalculate:");
             input = scanner.nextLine();
+            if(input.equalsIgnoreCase("exit")){
+                Main.main(null);
+            }
 
             if (areValidCharacters(input)) {
                 charList = createCharList(input);
@@ -195,9 +205,5 @@ public class Calculator {
         return result;
     }
 
-
-    public static void main(String[] args) {
-        Calculator c = new Calculator(false);
-    }
 
 }

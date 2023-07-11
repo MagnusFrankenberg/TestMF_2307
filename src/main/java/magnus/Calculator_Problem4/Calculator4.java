@@ -1,31 +1,41 @@
 package magnus.Calculator_Problem4;
 
+import magnus.Main;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Calculator {
+public class Calculator4 {
     private boolean isTest;
     Scanner scanner;
 
 
-    public Calculator(boolean isTest) {
+    public Calculator4(boolean isTest) {
         this.isTest = isTest;
         if(!isTest){
+            runApp();
+        }
+    }
+
+    public void runApp(){
+        while(true){
             readInput(null);
         }
     }
 
-
     public double readInput(String testStr) {
-        String input = null;
+        String input;
         double output;
         List<Character> charList;
         scanner = isTest ? new Scanner(testStr) : new Scanner(System.in);
 
         while (true) {
-            System.out.println("***With multiple operators of same precendence***\nCalculate:");
+            System.out.println("***With multiple operators of same precendence (exit = exit)***\nCalculate:");
             input = scanner.nextLine();
+            if(input.equalsIgnoreCase("exit")){
+                Main.main(null);
+            }
 
             if (areValidCharacters(input)) {
                 charList = createCharList(input);
@@ -105,7 +115,6 @@ public class Calculator {
                     currentNumber = Double.parseDouble(currentNumberString);
                     result = makeOperation(result, currentNumber, operator);
                     operator = chars.get(i);  //next rounds operator
-                   // currentNumberString = chars.get(i+1)=='-'?"-":"";
                        currentNumberString = "";
                 }
             }
@@ -127,11 +136,6 @@ public class Calculator {
         }
         return result;
     }
-
-    public static void main(String[] args) {
-        Calculator c = new Calculator(false);
-    }
-
 
 
 }

@@ -1,5 +1,7 @@
 package magnus.Detect_Anagram;
 
+import magnus.Main;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -10,6 +12,12 @@ public class DetectAnagram {
     public DetectAnagram(boolean isTest) {
         this.isTest = isTest;
         if (!isTest) {
+            run();
+        }
+    }
+
+    public void run(){
+        while(true) {
             isAnagram(readInput(null));
         }
     }
@@ -20,13 +28,17 @@ public class DetectAnagram {
         return !notValid;
     }
 
-
     public String[] readInput(String testStr) {
         String[] strings = new String[2];
         scanner = isTest ? new Scanner(testStr) : new Scanner(System.in);
 
         while (true) {
-            System.out.println("***Insert two words to check if they are anagrams (type X to exit)***\nWord1:");
+            System.out.println("***Insert two words to check if they are anagrams (type a digit 0-9 to exit)***\nWord1:");
+            if(scanner.hasNextInt()){
+                scanner.nextLine();
+                Main.main(null);
+            }
+
             strings[0] = scanner.nextLine();
             System.out.println("Word2:");
             strings[1] = scanner.nextLine();
@@ -36,16 +48,14 @@ public class DetectAnagram {
             } else {
                 System.out.println("Your input is not valid, try again\n");
             }
-
         }
-
     }
 
 
     public boolean isAnagram(String[] strings) {
 
         if (strings[0].length() != strings[1].length()) {
-            System.out.println("Your words are not anagrams");
+            System.out.println("False");
             return false;
         }
 
@@ -62,20 +72,14 @@ public class DetectAnagram {
 
         for (int i = 0; i < string1.length; i++) {
             if (string1[i] != string2[i]) {
-                System.out.println("Your words are not anagrams");
+                System.out.println("False");
                 return false;
             }
         }
-        System.out.println("Your words are anagrams");
+        System.out.println("True");
         return true;
     }
 
-
-    public static void main(String[] args) {
-        while (true) {
-            DetectAnagram da = new DetectAnagram(false);
-        }
-    }
 
 
 }

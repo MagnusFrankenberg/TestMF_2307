@@ -28,7 +28,7 @@ public class InputValidation {
 
 
 
-    //Tillåten plats på operator eller decimaltecken
+    //Valid placement of operator or decimalsign
     public boolean validStartEnd(char[] chars){
         char c0 = chars[0];
         char c1 = chars[1];
@@ -43,7 +43,7 @@ public class InputValidation {
     }
 
 
-    //operator inkluderad
+    //is operator included
     public boolean operatorIncluded(char[] chars){
         boolean included=false;
         if(chars[0]=='-'){
@@ -63,6 +63,7 @@ public class InputValidation {
     }
 
 
+    //max one operator
     public boolean maxOneOperator(char[] chars){
         int countO = 0, countM = 0;
         for (int i = 0; i < chars.length; i++) {

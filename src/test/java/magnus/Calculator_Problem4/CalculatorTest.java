@@ -9,11 +9,11 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
-    Calculator calculator4;
+    Calculator4 calculator4;
 
     @BeforeEach
     void setUp() {
-       calculator4 = new Calculator(true);
+       calculator4 = new Calculator4(true);
     }
 
 

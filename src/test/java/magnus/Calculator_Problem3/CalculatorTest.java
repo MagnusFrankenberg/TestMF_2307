@@ -6,11 +6,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
 
-    Calculator calculator;
+    Calculator3 calculator;
 
     @BeforeEach
     void setUp() {
-        calculator = new Calculator(true);
+        calculator = new Calculator3(true);
     }
 
     @Test

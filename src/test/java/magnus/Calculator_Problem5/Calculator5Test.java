@@ -8,14 +8,14 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CalculatorTest {
+class Calculator5Test {
 
-    Calculator calculator5;
+    Calculator5 calculator5;
 
     @BeforeEach
     void setUp() {
 
-        calculator5 = new Calculator(true);
+        calculator5 = new Calculator5(true);
     }
 
 
