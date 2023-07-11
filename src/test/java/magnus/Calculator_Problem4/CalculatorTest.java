@@ -153,4 +153,11 @@ class CalculatorTest {
         input.chars().forEach(c -> chars.add((char) c));
         assertEquals(false, calculator4.isValidOrder(chars));
     }
+
+    @Test
+    void readInput() {
+        assertEquals(24.0,calculator4.readInput("2+2+4+10+10-4"));
+        assertEquals(10.0,calculator4.readInput("-2+6+4+2"));
+        assertEquals(12.0,calculator4.readInput("2*2*2*3/2"));
+    }
 }

@@ -17,8 +17,9 @@ public class Calculator {
     }
 
 
-    public void readInput(String testStr) {
+    public double readInput(String testStr) {
         String input = null;
+        double output;
         List<Character> charList;
         scanner = isTest ? new Scanner(testStr) : new Scanner(System.in);
 
@@ -29,7 +30,9 @@ public class Calculator {
             if (areValidCharacters(input)) {
                 charList = createCharList(input);
                 if(isValidOrder(charList)) {
-                    System.out.println(calculate(charList));
+                    output =calculate(charList);
+                    System.out.println(output);
+                    return output;
                 }
             }
         }
@@ -50,8 +53,6 @@ public class Calculator {
         for (int i = 0; i < charList.size()-1; i++) {
             current= charList.get(i);
             next= charList.get(i+1);
-
-          //  if(isOperator(current)&&next=='-'){}else
 
                 if((isOperator(current)&&isOperator(next))||
                     (isOperator(current)&&next=='.')||
